@@ -4,6 +4,11 @@
   "description": "My website",
   "main": "index.js",
   "scripts": {
+		"div": "webpack -d --watch",
+		"start": "node ./server/index.js",
+		"build": "webpack -p",
+		"react-dev": "webpack -d --watch",
+		"server-dev": "nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Chester Hu",
