@@ -2,16 +2,15 @@ import React from 'react';
 import { Image } from 'semantic-ui-react';
 import { Container, Header, Segment } from 'semantic-ui-react';
 
-import NavBar from './nav_bar';
 
 const Title = () => {
 	return (
 		<Segment
-            inverted
-            textAlign='center'
-            style={{ minHeight: 700, padding: '1em 0em' }}
-            vertical
-          >
+			inverted
+			color='teal'
+			textAlign='center'
+			style={{ minHeight: 700, padding: '1em 0em' }}
+			vertical>
 			<Container text>
 				<Header 
 					as='h1'

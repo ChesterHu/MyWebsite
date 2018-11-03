@@ -30,11 +30,9 @@ class NavBar extends Component {
 
 		return (
 			<Menu 
-				fixed='top'
-				size='large'
+				fluid
+				vertical
 				pointing
-				secondary
-				inverted
 			>
 				<Container>
 					{sectionItems}
