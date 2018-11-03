@@ -1,45 +1,30 @@
-import React, { Component} from 'react';
+import React from 'react';
 import { Container, Menu } from 'semantic-ui-react';
 
-class NavBar extends Component {
-	constructor(props) {
-		super(props);
+import NavBarItem from './nav_bar_item';
 
-		this.state = {
-			sections: props.sections,
-			activeItem: 'Home'
-		};
-	}
-
-	render() {
-		const handleClick = (event, { name }) => { 
-			this.setState({ activeItem: name })
-		};
-		
-		const activeItem = this.state.activeItem;
-		const sectionItems = this.state.sections.map((sectionItem) => {
-			return (
-				<Menu.Item
-					name={sectionItem} 
-					active={activeItem === sectionItem}
-					onClick={handleClick}
-				/>
-			);
-		});
-
-
+const NavBar = (props) => {
+	const sectionItems = props.sections.map((section) => {
 		return (
-			<Menu 
-				fluid
-				vertical
-				pointing
-			>
-				<Container>
-					{sectionItems}
-				</Container>
-			</Menu>
+			<NavBarItem
+				name={section}
+				selectedSection={props.selectedSection}
+				onSectionSelect={props.onSectionSelect}
+			/>
 		);
-	}
+	});
+
+	return (
+		<Menu 
+			fluid
+			vertical
+			pointing
+		>
+			<Container>
+				{sectionItems}
+			</Container>
+		</Menu>
+	);
 };
 
 
