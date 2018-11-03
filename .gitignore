@@ -8,3 +8,6 @@ bundle.js
 
 # Dependency directory
 node_modules/
+
+# Swap files
+*.swp
