@@ -5,6 +5,7 @@ import { Grid, Segment, Image } from 'semantic-ui-react';
 import Title from './components/title';
 import NavBar from './components/nav_bar';
 import SectionDetail from './components/section_detail';
+import Footer from './components/footer';
 
 class App extends Component {
 	constructor(props) {
@@ -34,6 +35,7 @@ class App extends Component {
 						<SectionDetail section={this.state.selectedSection} />
 					</Grid.Column>
 				</Grid>
+				<Footer />
 			</div>
 		);
 	}
