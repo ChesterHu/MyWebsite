@@ -1,10 +1,11 @@
 import React from 'react';
+import { Segment } from 'semantic-ui-react';
 
 const SectionDetail = ({ section }) => {
 	return (
-		<div>
-			This is selected Section
-		</div>
+		<Segment>
+			this section: { section } has been selected.
+		</Segment>
 	);
 };
 
