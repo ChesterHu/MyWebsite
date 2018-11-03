@@ -1,31 +1,38 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Grid, Segment } from 'semantic-ui-react';
+import { Grid, Segment, Image } from 'semantic-ui-react';
 
 import Title from './components/title';
 import NavBar from './components/nav_bar';
+import SectionDetail from './components/section_detail';
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			sections: ['Home', 'About', 'Education', 'Project', 'Teaching', 'Contact']
+			sections: ['Home', 'Education', 'Project', 'Teaching', 'Contact'],
+			selectedSection: 'Home'
 		};
 	}
 
 	render() {
 		return (
-			<Grid>
-				<Grid.Column width={4}>
-					<NavBar sections={this.state.sections} />
-				</Grid.Column>
-				<Grid.Column stretched width={12}>
-					<Segment>
-						Welcome to my website
-					</Segment>
-				</Grid.Column>
-			</Grid>
+			<div>
+				<Segment>
+					<Image src={require('./images/test_background.jpg')} circular size='small'/>
+				</Segment>
+				<Grid>
+					<Grid.Column width={4}>
+						<NavBar sections={this.state.sections} />
+					</Grid.Column>
+					<Grid.Column stretched width={12}>
+						<Segment>
+							Welcome to my website
+						</Segment>
+					</Grid.Column>
+				</Grid>
+			</div>
 		);
 	}
 }
