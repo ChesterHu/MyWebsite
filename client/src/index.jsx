@@ -24,12 +24,14 @@ class App extends Component {
 				</Segment>
 				<Grid>
 					<Grid.Column width={4}>
-						<NavBar sections={this.state.sections} />
+						<NavBar 
+							sections={this.state.sections}
+							selectedSection={this.state.selectedSection}
+							onSectionSelect={(event, { name }) => this.setState({selectedSection: name})}
+						/>
 					</Grid.Column>
 					<Grid.Column stretched width={12}>
-						<Segment>
-							Welcome to my website
-						</Segment>
+						<SectionDetail section={this.state.selectedSection} />
 					</Grid.Column>
 				</Grid>
 			</div>
