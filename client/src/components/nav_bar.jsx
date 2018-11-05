@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Menu, Grid, Segment, Header } from 'semantic-ui-react';
 
 import NavBarItem from './nav_bar_item';
+import WelcomeMessage from './welcome_message';
 
 const NavBar = (props) => {
 	const sectionItems = props.sections.map((section) => {
@@ -16,14 +17,14 @@ const NavBar = (props) => {
 
 	return (
 		<Menu 
+			fluid
 			secondary
 			pointing
+			widths={6}
 		>
-			<Container>
-				<Menu.Item header> Chester Hu</Menu.Item>
-				{sectionItems}
-				<Menu.Item position='right'> Greetings </Menu.Item>
-			</Container>
+			<Menu.Item header> Chester Hu</Menu.Item>
+			{sectionItems}
+			<Menu.Item> <WelcomeMessage />  </Menu.Item>
 		</Menu>
 	);
 };
