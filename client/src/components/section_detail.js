@@ -1,11 +1,15 @@
 import React from 'react';
-import { Segment } from 'semantic-ui-react';
+import { Segment, Container } from 'semantic-ui-react';
+import ReactMarkdown from 'react-markdown';
+
+import Sample from '../data/Home';
 
 const SectionDetail = ({ section }) => {
+	const sample = require(`../data/${section}.js`);
 	return (
-		<Segment>
-			this section: { section } has been selected.
-		</Segment>
+		<Container text>
+			<ReactMarkdown source={sample} />
+		</Container>
 	);
 };
 
