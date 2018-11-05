@@ -6,21 +6,15 @@ import { Container, Header, Segment } from 'semantic-ui-react';
 const Title = () => {
 	return (
 		<Segment
-			inverted
-			color='teal'
 			textAlign='center'
-			style={{ minHeight: 700, padding: '1em 0em' }}
-			vertical>
+			>
 			<Container text>
 				<Header 
 					as='h1'
-					content='Chester Hu'
-					inverted
+					content='Hello, World!'
 					style={{
 						fontSize: '4em',
-						fontWeight: 'normal',
-						marginBottom: 0,
-						marginTop: '3em'
+						fontWeight: 'normal'
 					}} />
 			</Container>
 		</Segment>
