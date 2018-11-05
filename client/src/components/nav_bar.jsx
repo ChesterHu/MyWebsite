@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Menu } from 'semantic-ui-react';
+import { Container, Menu, Grid, Segment, Header } from 'semantic-ui-react';
 
 import NavBarItem from './nav_bar_item';
 
@@ -16,12 +16,13 @@ const NavBar = (props) => {
 
 	return (
 		<Menu 
-			fluid
-			vertical
+			secondary
 			pointing
 		>
 			<Container>
+				<Menu.Item header> Chester Hu</Menu.Item>
 				{sectionItems}
+				<Menu.Item position='right'> Greetings </Menu.Item>
 			</Container>
 		</Menu>
 	);
