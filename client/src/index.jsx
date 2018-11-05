@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Grid, Segment, Image } from 'semantic-ui-react';
+import { Grid, Segment, Image, Divider } from 'semantic-ui-react';
 
 import Title from './components/title';
+import InfoCard from './components/info_card';
 import NavBar from './components/nav_bar';
 import SectionDetail from './components/section_detail';
 import Footer from './components/footer';
@@ -20,19 +21,17 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<Segment>
-					<Image src={require('./images/test_background.jpg')} circular size='small'/>
-				</Segment>
-				<Grid>
-					<Grid.Column width={4}>
-						<NavBar 
-							sections={this.state.sections}
-							selectedSection={this.state.selectedSection}
-							onSectionSelect={(event, { name }) => this.setState({selectedSection: name})}
-						/>
-					</Grid.Column>
-					<Grid.Column stretched width={12}>
+				<NavBar 
+					sections={this.state.sections}
+					selectedSection={this.state.selectedSection}
+					onSectionSelect={(event, { name }) => this.setState({selectedSection: name})}
+				/>
+				<Grid divided='vertically'>
+					<Grid.Column width={12}>
 						<SectionDetail section={this.state.selectedSection} />
+					</Grid.Column>
+					<Grid.Column width={4}>
+						<InfoCard />
 					</Grid.Column>
 				</Grid>
 				<Footer />
