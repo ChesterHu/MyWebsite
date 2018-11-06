@@ -8,14 +8,12 @@ import NavBar from './components/nav_bar';
 import SectionDetail from './components/section_detail';
 import Footer from './components/footer';
 
-import WelcomeMessage from './components/welcome_message.js';
-
 class App extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			sections: ['Home', 'Projects', 'Teaching', 'Contact'],
+			sections: ['HOME', 'PROJECTS', 'TEACHING', 'CONTACT'],
 			selectedSection: 'Home'
 		};
 	}
