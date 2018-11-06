@@ -3,11 +3,15 @@ import React, { Component } from 'react';
 class WelcomeMessage extends Component {
 	constructor(props) {
 		super(props)
-
+	
+		let todayTime = this.getTodayTime();
 		this.state = {
 			messages: [
-				'Hello, World!', 
-				'Welcome to my website'
+				"Hello, World!", 
+				"Welcome to my website",
+				"Greetings",
+				"Glad you're here!",
+				`Good ${todayTime}!` 
 			],
 			current_msg: '',
 			current_msg_idx: 0,
@@ -40,7 +44,7 @@ class WelcomeMessage extends Component {
 
 		if (msg_idx == this.state.messages.length) {
 			clearInterval(this.timer);
-			this.setState({current_msg: ''});
+			this.setState({current_msg: this.state.messages[msg_idx - 1]});
 		} else {
 			this.setState({
 				current_msg: msg,
@@ -50,9 +54,24 @@ class WelcomeMessage extends Component {
 		}
 	}
 
+	getTodayTime() {
+		let todayHr = (new Date()).getHours();
+		let time;
+		if (todayHr < 12)
+			time = "morning";
+		else if (todayHr < 18)
+			time = "afternoon";
+		else
+			time = "evening";
+
+		return time;
+	}
+
 	render() {
 		return (
-			<div>{this.state.current_msg}</div>	
+			<div class='welcome'>
+				{this.state.current_msg}
+			</div>	
 		);
 	}
 
