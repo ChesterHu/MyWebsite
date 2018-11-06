@@ -22,9 +22,15 @@ const NavBar = (props) => {
 			pointing
 			widths={6}
 		>
-			<Menu.Item header> Chester Hu</Menu.Item>
+			<Menu.Item header> 
+				<div class='name'> 
+					Chester Hu 
+				</div>
+			</Menu.Item>
 			{sectionItems}
-			<Menu.Item> <WelcomeMessage />  </Menu.Item>
+			<Menu.Item> 
+				<WelcomeMessage />
+			</Menu.Item>
 		</Menu>
 	);
 };
