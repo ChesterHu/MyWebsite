@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, Menu, Grid, Segment, Header } from 'semantic-ui-react';
+import { Menu } from 'semantic-ui-react';
 
+import Name from './name';
 import NavBarItem from './nav_bar_item';
 import WelcomeMessage from './welcome_message';
 
@@ -23,9 +24,7 @@ const NavBar = (props) => {
 			widths={6}
 		>
 			<Menu.Item header> 
-				<div class='name'> 
-					Chester Hu 
-				</div>
+				<Name />
 			</Menu.Item>
 			{sectionItems}
 			<Menu.Item> 

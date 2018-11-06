@@ -5,8 +5,8 @@ import { Grid, Segment, Image, Divider } from 'semantic-ui-react';
 import Title from './components/title';
 import InfoCard from './components/info_card';
 import NavBar from './components/nav_bar';
-import SectionDetail from './components/section_detail';
 import Footer from './components/footer';
+import SectionDetail from './components/section_detail';
 
 class App extends Component {
 	constructor(props) {
