@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import Sample from '../data/Home';
 
 const SectionDetail = ({ section }) => {
-	const sample = require(`../data/${section}.js`);
+	const sample = require(`../data/${section.toLowerCase()}.js`);
 	return (
 		<Container text>
 			<ReactMarkdown source={sample} />
