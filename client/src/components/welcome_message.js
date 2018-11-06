@@ -18,7 +18,7 @@ class WelcomeMessage extends Component {
 	componentDidMount() {
 		this.timer = setInterval(
 			() => this.tick(), 
-			200
+			150
 		);
 	}
 	
@@ -39,14 +39,15 @@ class WelcomeMessage extends Component {
 		}
 
 		if (msg_idx == this.state.messages.length) {
-			msg_idx = 0;
+			clearInterval(this.timer);
+			this.setState({current_msg: ''});
+		} else {
+			this.setState({
+				current_msg: msg,
+				current_msg_idx: msg_idx,
+				current_char_idx: char_idx
+			});
 		}
-
-		this.setState({
-			current_msg: msg,
-			current_msg_idx: msg_idx,
-			current_char_idx: char_idx
-		});
 	}
 
 	render() {
