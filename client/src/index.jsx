@@ -14,7 +14,7 @@ class App extends Component {
 
 		this.state = {
 			sections: ['HOME', 'PROJECTS', 'TEACHING', 'CONTACT'],
-			selectedSection: 'Home'
+			selectedSection: 'HOME'
 		};
 	}
 
