@@ -8,12 +8,14 @@ import NavBar from './components/nav_bar';
 import SectionDetail from './components/section_detail';
 import Footer from './components/footer';
 
+import WelcomeMessage from './components/welcome_message.js';
+
 class App extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			sections: ['Home', 'Education', 'Project', 'Teaching', 'Contact'],
+			sections: ['Home', 'Projects', 'Teaching', 'Contact'],
 			selectedSection: 'Home'
 		};
 	}
@@ -27,10 +29,10 @@ class App extends Component {
 					onSectionSelect={(event, { name }) => this.setState({selectedSection: name})}
 				/>
 				<Grid divided='vertically'>
-					<Grid.Column width={12}>
+					<Grid.Column width={10}>
 						<SectionDetail section={this.state.selectedSection} />
 					</Grid.Column>
-					<Grid.Column width={4}>
+					<Grid.Column width={6}>
 						<InfoCard />
 					</Grid.Column>
 				</Grid>
