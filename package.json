@@ -12,8 +12,8 @@
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-		"postinstall": "webpack",
-		"heroku-postbuild": "webpack -p"
+    "postinstall": "webpack",
+    "heroku-postbuild": "webpack -p"
   },
   "author": "Chester Hu",
   "license": "ISC",
@@ -21,6 +21,7 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "react": "^16.6.0",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-animate-on-change": "^2.1.1",
     "react-dom": "^16.6.0",
     "react-markdown": "^4.0.3",
