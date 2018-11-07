@@ -6,23 +6,21 @@ class Name extends Component {
 		super(props);
 
 		this.state = {
-			display_name: 'Chufeng Hu',
-			eng_name: 'Chester',
 			cn_name: 'Chufeng Hu',
-			diff: false
+			eng_name: 'Chester',
+			isEng: false
 		}
 	}
 
 	handleMouseEnter() {
 		this.setState({
-			display_name: this.state.eng_name,
-			diff: true
+			isEng: true
 		});	
 	}
 
 	handleMouseLeave() {
 		this.setState({
-			display_name: this.state.cn_name,
+			isEng: false
 		});
 	}
 
@@ -31,15 +29,14 @@ class Name extends Component {
 			<AnimateOnChange
 				baseClassName='message'
 				animationClassName='message-hovered'
-				onAnimationEnd={() => this.setState({diff: false})}
-				animate={this.state.diff}
+				animate={this.state.isEng}
 			>
 				<div 
 					class='name'
 					onMouseEnter={() => this.handleMouseEnter()}
 					onMouseLeave={() => this.handleMouseLeave()}
 				>
-					{this.state.display_name}
+					{this.state.isEng ? this.state.eng_name : this.state.cn_name}
 				</div>
 			</AnimateOnChange>
 		);
