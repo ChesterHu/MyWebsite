@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Grid, Image } from 'semantic-ui-react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import Title from './components/title';
 import InfoCard from './components/info_card';
@@ -28,10 +29,19 @@ class App extends Component {
 				/>
 				<Grid divided='vertically' style={{minHeight:750}}>
 					<Grid.Column width={10}>
-						<SectionDetail section={this.state.selectedSection} />
+						<ReactCSSTransitionGroup
+							transitionName='flip'
+							transitionEnterTimeout={1000}
+							transitionLeaveTimeout={1}>
+							<div key={this.state.selectedSection}>
+								<SectionDetail section={this.state.selectedSection} />
+							</div>
+						</ReactCSSTransitionGroup>
 					</Grid.Column>
 					<Grid.Column width={6}>
-						<InfoCard />
+						<div class='w3-animate-right'>
+							<InfoCard />
+						</div>
 					</Grid.Column>
 				</Grid>
 				<Footer />
