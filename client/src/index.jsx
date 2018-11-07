@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Grid, Segment, Image, Divider } from 'semantic-ui-react';
+import { Grid, Image } from 'semantic-ui-react';
 
 import Title from './components/title';
 import InfoCard from './components/info_card';
@@ -26,7 +26,7 @@ class App extends Component {
 					selectedSection={this.state.selectedSection}
 					onSectionSelect={(event, { name }) => this.setState({selectedSection: name})}
 				/>
-				<Grid divided='vertically'>
+				<Grid divided='vertically' style={{minHeight:750}}>
 					<Grid.Column width={10}>
 						<SectionDetail section={this.state.selectedSection} />
 					</Grid.Column>
