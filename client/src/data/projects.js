@@ -6,7 +6,7 @@ In the summer of 2018, I worked as a software engineer intern in Microsoft STCA,
 
 ---
 ## Human Face Detection by Boosting Techniques
-I implemented the algorithm during my graduate study. The object of this project is detecting human face by AdaBoost and RealBoost. The training set contains 11838 human face images and 45356 non face images. The images were first converted to integral image in order to reduce the time complexity of computing the predictions from hundreds of filters. The project is written in C++ and the source code can be found [here](https://github.com/ChesterHu/Human-face-detection-by-Boosting-techniques/tree/master).
+I implemented this algorithm during my graduate study. The object of this project is detecting human face by AdaBoost and RealBoost. The training set contains 11838 human face images and 45356 non face images. The images were first converted to integral image in order to reduce the time complexity of computing the predictions from hundreds of filters. The project is written in C++ and the source code can be found [here](https://github.com/ChesterHu/Human-face-detection-by-Boosting-techniques/tree/master).
 
 ---
 ## Movie Database Application
