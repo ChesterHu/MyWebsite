@@ -6,7 +6,7 @@ import AnimateOnChange from 'react-animate-on-change';
 import Home from '../data/home';
 import Contact from '../data/contact';
 import Projects from '../data/projects';
-import Teaching from '../data/Teaching';
+import Teaching from '../data/teaching';
 
 const SectionDetail = ({ section }) => {
 	const content = getContent(section);
