@@ -1,7 +1,6 @@
 import React from 'react';
-import { Segment, Container } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 import ReactMarkdown from 'react-markdown';
-import AnimateOnChange from 'react-animate-on-change';
 
 import Home from '../data/home';
 import Contact from '../data/contact';
@@ -11,15 +10,9 @@ import Teaching from '../data/teaching';
 const SectionDetail = ({ section }) => {
 	const content = getContent(section);
 	return (
-		<AnimateOnChange
-			baseClassName='message'
-			animationClassName='message-hovered'
-			animate={true}
-		>
-			<Container text>
-				<ReactMarkdown source={content} />
-			</Container>
-		</AnimateOnChange>
+		<Container text>
+			<ReactMarkdown source={content} />
+		</Container>
 	);
 };
 
