@@ -13,8 +13,8 @@ class App extends Component {
 		super(props);
 
 		this.state = {
-			sections: ['HOME', 'PROJECTS', 'TEACHING', 'CONTACT'],
-			selectedSection: 'HOME'
+			sections: ['Home', 'Projects', 'Teaching', 'Contact'],
+			selectedSection: 'Home'
 		};
 	}
 

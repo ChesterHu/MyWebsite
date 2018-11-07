@@ -3,8 +3,13 @@ import { Segment, Container } from 'semantic-ui-react';
 import ReactMarkdown from 'react-markdown';
 import AnimateOnChange from 'react-animate-on-change';
 
+import Home from '../data/home';
+import Contact from '../data/contact';
+import Projects from '../data/projects';
+import Teaching from '../data/Teaching';
+
 const SectionDetail = ({ section }) => {
-	const sample = require(`../data/${section.toLowerCase()}.js`);
+	const content = getContent(section);
 	return (
 		<AnimateOnChange
 			baseClassName='message'
@@ -12,11 +17,21 @@ const SectionDetail = ({ section }) => {
 			animate={true}
 		>
 			<Container text>
-				<ReactMarkdown source={sample} />
+				<ReactMarkdown source={content} />
 			</Container>
 		</AnimateOnChange>
 	);
 };
+
+function getContent(section) {
+	switch(section) {
+		case 'Home': return Home;
+		case 'Contact': return Contact;
+		case 'Projects': return Projects;
+		case 'Teaching': return Teaching;
+	}
+	return null;
+}
 
 export default SectionDetail;
 
