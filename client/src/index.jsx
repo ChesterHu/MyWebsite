@@ -17,6 +17,12 @@ class App extends Component {
 			sections: ['Home', 'Projects', 'Teaching', 'Contact'],
 			selectedSection: 'Home'
 		};
+
+		this.handleClick = this.handleClick.bind(this); // better to bind it in constructor
+	}
+	
+	handleClick(e, { name }) {
+		this.setState({selectedSection: name});
 	}
 
 	render() {
@@ -25,7 +31,7 @@ class App extends Component {
 				<NavBar 
 					sections={this.state.sections}
 					selectedSection={this.state.selectedSection}
-					onSectionSelect={(event, { name }) => this.setState({selectedSection: name})}
+					onSectionSelect={this.handleClick}
 				/>
 				<Grid divided='vertically' style={{minHeight:750}}>
 					<Grid.Column width={10}>
