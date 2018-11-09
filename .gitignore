@@ -11,3 +11,6 @@ node_modules/
 
 # Swap files
 *.swp
+
+# Ignore DS_Store
+.DS_Store
