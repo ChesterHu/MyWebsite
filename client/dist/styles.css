@@ -1,4 +1,5 @@
-.body {
+* {
+	font-family: 'Open Sans', sans-serif;
 }
 
 .footer {
@@ -16,12 +17,7 @@
 }
 
 .welcome {
-	font-family: 'Ubuntu', sans-serif;
 	text-shadow: 4px 4px 4px #aaa;
-}
-
-* {
-	font-family: 'Open Sans', sans-serif;
 }
 
 .message-hovered {
