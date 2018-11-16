@@ -19,7 +19,7 @@ const InfoCard = () => {
 		<Card
 			centered
 			size='small'>
-			<Image src={require('../images/test_background.jpg')} />
+			<Image src={require('../images/my-photo.jpg')} />
 			<Card.Content>
 				<Card.Header>Chufeng Hu</Card.Header>
 				<Card.Meta>University of Waterloo</Card.Meta>
