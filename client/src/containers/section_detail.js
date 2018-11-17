@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Divider } from 'semantic-ui-react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class SectionDetail extends Component {
 	renderSection(section) {
@@ -32,13 +31,7 @@ class SectionDetail extends Component {
 	render() {
 		return (
 			<Container text>
-
-				<ReactCSSTransitionGroup
-					transitionName='flip'
-					transitionEnterTimeout={1000}
-					transitionLeaveTimeout={100}>
-					{this.renderSection(this.props.section)}
-				</ReactCSSTransitionGroup>
+				{this.renderSection(this.props.section)}
 			</Container>
 		);
 	}
