@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Menu } from 'semantic-ui-react';
 
 import { selectSection } from '../actions/index';
 

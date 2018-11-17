@@ -1,20 +1,5 @@
-const contact = {
-	title: 'Contact Information',
-	subtitle: 'If you want to discuss anything, please fell free to email me',
-	subsections: [
-		{
-			paragraphs: [
-				'Email: c55hu at uwaterloo.ca',
-				'Room 3594, Davis Centre',
-				'David Cheriton School of Computer Science',
-				'University of Waterloo, Ontario',
-				'L3R 8M6'
-			]
-		}
-	],
-};
-
 const home = {
+	name: 'HOME',
 	title: 'Welcome to my website',
 	subsections: [
 		{
@@ -29,6 +14,7 @@ const home = {
 };
 
 const teaching = {
+	name: 'TEACHING',
 	title: 'Teaching Experience',
 	subtitle: "Teaching assistant is a role I love to play during my graduate study, Until now, I have TA'ed courses in computer science and statistics",
 	subsections: [
@@ -53,6 +39,7 @@ const teaching = {
 
 
 const projects = {
+	name: 'PROJECTS',
 	title: 'Selected Projects',
 	subsections: [
 		{
@@ -70,6 +57,23 @@ const projects = {
 			paragraphs: ["I developed a database driven IMDB-like website. Right now, the website has input, browse and search pages that allow users to add, retrieve and search data by HTML forms. This project is originally written in php and I plan to integrate React into it and deploy it before the end of 2019."]
 		}
 	]
+};
+
+const contact = {
+	name: 'CONTACT',
+	title: 'Contact Information',
+	subtitle: 'If you want to discuss anything, please fell free to email me',
+	subsections: [
+		{
+			paragraphs: [
+				'Email: c55hu at uwaterloo.ca',
+				'Room 3594, Davis Centre',
+				'David Cheriton School of Computer Science',
+				'University of Waterloo, Ontario',
+				'L3R 8M6'
+			]
+		}
+	],
 };
 
 export { home, projects, teaching, contact };

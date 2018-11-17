@@ -1,8 +1,21 @@
-export default function() {
+import { SELECT_SECTION } from '../actions/index';
+import { home, projects, teaching, contact } from '../data/contents';
+
+function SectionsReducer(){
 	return [
-		{ title: 'Welcome to my website' },
-		{ title: 'Selected Projects' },
-		{ title: 'Teaching Experience' },
-		{ title: 'Contact Information' }
+		home, 
+		projects,
+		teaching,
+		contact
 	]
 }
+
+function ActiveReducer(state = home, action) {
+	if (action.type === SELECT_SECTION) {
+		return action.payload;
+	}
+	return state;
+}
+
+export { SectionsReducer, ActiveReducer };
+
