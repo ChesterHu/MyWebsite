@@ -9,21 +9,23 @@ class SectionList extends Component {
 	renderList() {
 		return this.props.sections.map(section => {
 			return (
-				<li 
-					key={section.title} 
+				<Menu.Item 
+					name={section.name}
+					active={this.props.activeSection.name === section.name}
 					onClick={() => this.props.selectSection(section)}>
-					{section.title}
-				</li>
+				</Menu.Item>
 			);
 		});
 	}
 
 	render() {
 		return (
-			<div>
+			<Menu 
+				fluid
+				secondary
+				pointing>
 				{this.renderList()}
-				The active section is {this.props.activeSection && this.props.activeSection.title}
-			</div>
+			</Menu>
 		);
 	}
 };
