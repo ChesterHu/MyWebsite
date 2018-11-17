@@ -5,9 +5,8 @@ import { Provider } from 'react-redux';
 
 import App from './components/app';
 import reducer from './reducers/index';
-import SectionList from './containers/section_list';
 
-const store = createStore(() => {});
+const store = createStore(reducer);
 
 render(
 	<Provider store={store}>

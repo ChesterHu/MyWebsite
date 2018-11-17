@@ -6,6 +6,7 @@ import InfoCard from './info_card';
 import NavBar from './nav_bar';
 import Footer from './footer';
 import SectionDetail from './section_detail';
+import SectionList from '../containers/section_list';
 
 export default class App extends Component {
 	constructor(props) {
@@ -49,6 +50,7 @@ export default class App extends Component {
 					</Grid.Column>
 				</Grid>
 				<Footer />
+				<SectionList />
 			</div>
 		);
 	}
