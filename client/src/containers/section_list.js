@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Menu } from 'semantic-ui-react';
 
+import Name from '../components/name';
+import WelcomeMessage from '../components/welcome_message';
 import { selectSection } from '../actions/index';
 
 class SectionList extends Component {
@@ -20,12 +22,17 @@ class SectionList extends Component {
 
 	render() {
 		return (
-			<Menu 
-				fluid
-				secondary
-				pointing>
-				{this.renderList()}
-			</Menu>
+			<div>
+				<Menu 
+					fluid
+					secondary
+					pointing
+					widths={6}>
+					<Menu.Item header> <Name /></Menu.Item>
+					{this.renderList()}
+					<Menu.Item><WelcomeMessage /></Menu.Item>
+				</Menu>
+			</div>
 		);
 	}
 };
