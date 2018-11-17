@@ -14,9 +14,7 @@ export default class App extends Component {
 				<Divider hidden />
 				<Grid divided='vertically' style={{minHeight:750}}>
 					<Grid.Column width={10}>
-						<div>
-							<SectionDetail />
-						</div>
+						<SectionDetail />
 					</Grid.Column>
 					<Grid.Column width={6}>
 						<InfoCard />
