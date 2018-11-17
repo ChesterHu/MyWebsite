@@ -17,3 +17,13 @@ class SectionList extends Component {
 		});
 	}
 };
+
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({ selectSection: selectSection }, dispatch);
+}
+
+function mapSateToProps(state) {
+	return ({
+		sections: state.sections
+	});
+}
