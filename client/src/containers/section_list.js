@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { selectSection } from '../actions/index.js';
+import { selectSection } from '../actions/index';
 
 class SectionList extends Component {
 	renderList() {
@@ -16,14 +16,26 @@ class SectionList extends Component {
 			);
 		});
 	}
+
+	render() {
+		return (
+			<div>
+				{this.renderList()}
+				The active section is {this.props.activeSection && this.props.activeSection.title}
+			</div>
+		);
+	}
 };
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({ selectSection: selectSection }, dispatch);
 }
 
-function mapSateToProps(state) {
+function mapStateToProps(state) {
 	return ({
-		sections: state.sections
+		sections: state.sections,
+		activeSection: state.activeSection
 	});
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(SectionList);

@@ -1,6 +1,6 @@
-import { SELECT_SECTION } from '../actions/index'
+import { SELECT_SECTION } from '../actions/index';
 
-export default function (state = [], action) {
+export default function (state = null, action) {
 	if (action.type === SELECT_SECTION) {
 		return action.payload;
 	}
