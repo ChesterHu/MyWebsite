@@ -7,3 +7,5 @@ function selectSection(section) {
 		payload: section
 	});
 }
+
+export { selectSection, SELECT_SECTION };
