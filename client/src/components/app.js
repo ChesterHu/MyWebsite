@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Grid, Image } from 'semantic-ui-react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-import Title from './title';
 import InfoCard from './info_card';
 import NavBar from './nav_bar';
 import Footer from './footer';
