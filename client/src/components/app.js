@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Grid, Divider } from 'semantic-ui-react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import InfoCard from './info_card';
 import Footer from './footer';
@@ -15,14 +14,9 @@ export default class App extends Component {
 				<Divider hidden />
 				<Grid divided='vertically' style={{minHeight:750}}>
 					<Grid.Column width={10}>
-						<ReactCSSTransitionGroup
-							transitionName='flip'
-							transitionEnterTimeout={1000}
-							transitionLeaveTimeout={1}>
-							<div>
-								<SectionDetail />
-							</div>
-						</ReactCSSTransitionGroup>
+						<div>
+							<SectionDetail />
+						</div>
 					</Grid.Column>
 					<Grid.Column width={6}>
 						<InfoCard />
