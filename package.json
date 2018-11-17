@@ -24,7 +24,6 @@
     "react-addons-css-transition-group": "^15.6.2",
     "react-animate-on-change": "^2.1.1",
     "react-dom": "^16.6.0",
-    "react-markdown": "^4.0.3",
     "react-redux": "^5.1.1",
     "redux": "^4.0.1",
     "semantic-ui-react": "^0.83.0"
