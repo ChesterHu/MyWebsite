@@ -4,10 +4,12 @@ const home = {
 	subsections: [
 		{
 			header: 'About me',
+			height: 150,
 			paragraphs: ["I'm a research-based Master student in computer science at University of Waterloo, I'm current working at the scientific computing lab under the supervision of Professor Yuying Li. My research focuses on reinforcement learning in finite horizon. Besides, I have a great interest in machine learning and software development."]
 		},
 		{
 			header: 'About this site',
+			height: 150,
 			paragraphs: ["Building my website with JavaScript is fulfilling and exciting, The difficult part for me was commencing the project and the motivation is to learn more about web application. This site is a React app written in ES6, the source code can be found in my GitHub repository."]
 		}
 	]
@@ -20,18 +22,22 @@ const teaching = {
 	subsections: [
 		{
 			header: "STAT 442, Data Visualization",
+			height: 100,
 			paragraphs: ['Teaching Assistant, University of Waterloo, Fall 2017']
 		},
 		{
 			header: "STAT 330, Mathematical Statistics",
+			height: 100,
 			paragraphs: ["Teaching Assistant, University of Waterloo, Fall 2017"]
 		},
 		{
 			header: "CS 370, Numerical Computation",
+			height: 100,
 			paragraphs: ["Teaching Assistant, University of Waterloo, Winter 2017"]
 		},
 		{
 			header: "CS 794, Optimization for Data Science",
+			height: 100,
 			paragraphs: ["Teaching Assistant, University of Waterloo, Fall 2018"]
 		}
 	]
@@ -44,16 +50,19 @@ const projects = {
 	subsections: [
 		{
 			header: 'Automated Media Platform',
+			height: 230,
 			paragraphs:["In the summer of 2018, I worked as a software engineer intern in Microsoft STCA, where I involved in the development of a media application in NetEase Cloud Music. My project is to build a processor that can convert text to wav voice. I also integrated open source NLP models into my project in order to correct typos and pronunciation errors. The processor now can provide fully managed, I/O efficient media generation. The data processing speed of the processor is around 5ms/word. In this project, I aquired hands-on experience of industry projects and learned algorithms and data structures to build more efficient program."]
 		},
 
 		{
 			header: 'Human Face Detection by Boosting Techniques',
+			height: 180,
 			paragraphs: ["I implemented this algorithm during my graduate study. The object of this project is detecting human face by AdaBoost and RealBoost. The training set contains 11838 human face images and 45356 non face images. The images were first converted to integral image in order to reduce the time complexity of computing the predictions from hundreds of filters. The project is written in C++ and the source code can be found in my github repository."]
 		},
 
 		{
 			header: 'Movie Database Application',
+			height: 100,
 			paragraphs: ["I developed a database driven IMDB-like website. Right now, the website has input, browse and search pages that allow users to add, retrieve and search data by HTML forms. This project is originally written in php and I plan to integrate React into it and deploy it before the end of 2019."]
 		}
 	]
@@ -65,6 +74,7 @@ const contact = {
 	subtitle: 'If you want to discuss anything, please fell free to email me',
 	subsections: [
 		{
+			height: 300,
 			paragraphs: [
 				'Email: c55hu at uwaterloo.ca',
 				'Room 3594, Davis Centre',
