@@ -2,11 +2,29 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-class Board extends Component {
+import Square from '../components/square';
+import { playerPlaceShip } from '../actions/index';
+
+class Game extends Component {
+
+	renderBoard(board) {
+		return board.map((row, rowIndex) => {
+			return (
+				<div className='board-row'>
+					{row.map((value, colIndex) => 
+						<Square 
+							value={value}
+							onClick={() => this.props.playerPlaceShip(rowIndex, colIndex, 3, true)}/>)}
+				</div>
+			);
+		});
+	}
+
+
 	render() {
 		return (
 			<div>
-				Board
+				{this.renderBoard(this.props.playerBoard.board)}
 			</div>
 		);
 	}
@@ -18,4 +36,8 @@ function mapStateToProps(state) {
 	});
 }
 
-export default Board;
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({ playerPlaceShip }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Game);

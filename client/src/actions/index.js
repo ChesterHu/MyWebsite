@@ -1,12 +1,15 @@
 
 const SELECT_SECTION = 'SELECT_SECTION';
 
-const ROW_NUM = 10;
-const COL_NUM = 10;
+const NUM_ROWS = 10;
+const NUM_COLS = 10;
 const EMPTY = 'E';
 const SHIP = 'S';
 const HIT = 'H';
 const MISS = 'M';
+
+const ALL_SHIPS = [2, 3, 3, 5];
+const PLAYER_PLACE_SHIP = 'PLAYER_PLACE_SHIP';
 
 function selectSection(section) {
 	return ({
@@ -15,13 +18,23 @@ function selectSection(section) {
 	});
 }
 
+function playerPlaceShip(i, j, shipLength, isVertical) {
+	return ({
+		type: PLAYER_PLACE_SHIP,
+		payload: { i, j, shipLength, isVertical }
+	});
+}
+
 export { 
-	selectSection, 
+	selectSection,
+	playerPlaceShip,
 	SELECT_SECTION,
-	ROW_NUM,
-	COL_NUM,
+	NUM_ROWS,
+	NUM_COLS,
 	EMPTY,
 	SHIP,
 	HIT,
-	MISS
+	MISS,
+	ALL_SHIPS,
+	PLAYER_PLACE_SHIP
 };
