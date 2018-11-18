@@ -42,7 +42,6 @@ function EnemyBoardReducer(state = initState(), action) {
 			nextState.board = result.board;
 			nextState.ships = ALL_SHIPS.slice();
 		}
-		console.log(nextState.board);
 	}
 	return nextState;
 }
