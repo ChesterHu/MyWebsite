@@ -5,6 +5,7 @@ import InfoCard from './info_card';
 import Footer from './footer';
 import SectionList from '../containers/section_list';
 import SectionDetail from '../containers/section_detail';
+import Board from '../containers/board';
 
 export default class App extends Component {
 	render() {
@@ -20,6 +21,7 @@ export default class App extends Component {
 						<InfoCard />
 					</Grid.Column>
 				</Grid>
+				<Board />
 				<Footer />
 			</div>
 		);
