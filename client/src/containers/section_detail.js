@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Divider } from 'semantic-ui-react';
-import { Motion, spring, StaggeredMotion } from 'react-motion';
+import { spring, StaggeredMotion } from 'react-motion';
 
+const config = { stiffness: 150, damping: 12 };
 const toCSS = (scale) => ({ transform: `scale3d(${scale}, ${scale}, ${scale})` })
 
 class SectionDetail extends Component {
@@ -18,7 +19,7 @@ class SectionDetail extends Component {
 				<StaggeredMotion
 					defaultStyles={defaultStyles}
 					styles={prevInterpolatedStyles => prevInterpolatedStyles.map((_, i) => {
-								return i === 0 ? { scale: spring(1) } : { scale: spring(prevInterpolatedStyles[i - 1].scale) }
+								return i === 0 ? { scale: spring(1, config) } : { scale: spring(prevInterpolatedStyles[i - 1].scale) }
 					})}>
 					{interpolatingStyles =>
 						<div>

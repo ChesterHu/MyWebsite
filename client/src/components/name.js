@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import AnimateOnChange from 'react-animate-on-change';
+import { Motion, spring } from 'react-motion';
+
+const toCSS = (rotateX) => ({ transform: `rotateX(${rotateX}deg)` });
 
 class Name extends Component {
 	constructor(props) {
@@ -26,18 +28,22 @@ class Name extends Component {
 
 	render() {
 		return (
-			<AnimateOnChange
-				animationClassName='message-hovered'
-				animate={this.state.isEng}
-			>
-				<div 
-					class='name'
-					onMouseEnter={() => this.handleMouseEnter()}
-					onMouseLeave={() => this.handleMouseLeave()}
-				>
-					{this.state.isEng ? this.state.eng_name : this.state.cn_name}
-				</div>
-			</AnimateOnChange>
+			<div key={this.state.isEng}>
+				<Motion 
+					defaultStyle={{ rotateX: 220 }}
+					style={{ rotateX: spring(0)}}>
+					{style =>
+						<div 
+							className='name'
+							style={toCSS(style.rotateX)}
+							onMouseEnter={() => this.handleMouseEnter()}
+							onMouseLeave={() => this.handleMouseLeave()}
+						>
+							{this.state.isEng ? this.state.eng_name : this.state.cn_name}
+						</div>
+					}
+				</Motion>
+			</div>
 		);
 	}
 }
