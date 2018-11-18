@@ -6,7 +6,8 @@ import {
 	HIT,
 	MISS,
 	ALL_SHIPS,
-	PLAYER_PLACE_SHIP
+	PLAYER_PLACE_SHIP,
+	PLAYER_ROTATE_SHIP
 } from '../actions/index';
 
 function initState() {
@@ -18,16 +19,18 @@ function initState() {
 }
 
 function PlayerBoardReducer(state = initState(), action) {
-	if (action.type === PLAYER_PLACE_SHIP) {
+	let nextState = JSON.parse(JSON.stringify(state));
+	if (action.type === PLAYER_ROTATE_SHIP) {
+		nextState.shipIsVertical = action.payload;
+	} else if (action.type === PLAYER_PLACE_SHIP) {
 		if (state.ships.length >= ALL_SHIPS.length) return state;
 		let shipLength = ALL_SHIPS[state.ships.length];
-		let nextState = JSON.parse(JSON.stringify(state));
 		let { i, j } = action.payload;
 		
 		if (placeShip(i, j, shipLength, nextState.shipIsVertical, nextState.board)) nextState.ships.push(shipLength);
 		return nextState;
 	}
-	return state;
+	return nextState;
 }
 
 function placeShip(i, j, shipLength, isVertical, board) {

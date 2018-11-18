@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Square from '../components/square';
-import { playerPlaceShip } from '../actions/index';
+import { playerPlaceShip, playerRotateShip } from '../actions/index';
 
 class Game extends Component {
 
@@ -24,6 +24,8 @@ class Game extends Component {
 	render() {
 		return (
 			<div>
+				<button onClick={() => this.props.playerRotateShip(false)}>Horizontal</button>
+				<button onClick={() => this.props.playerRotateShip(true)}>Vertical</button>
 				{this.renderBoard(this.props.playerBoard.board)}
 			</div>
 		);
@@ -37,7 +39,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({ playerPlaceShip }, dispatch);
+	return bindActionCreators({ playerPlaceShip, playerRotateShip }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game);
