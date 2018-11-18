@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Divider } from 'semantic-ui-react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class SectionDetail extends Component {
 	renderSection(section) {
@@ -16,7 +17,7 @@ class SectionDetail extends Component {
 		});
 
 		return (
-			<div>
+			<div key={section.title}>
 				<header>
 					<h2>{section.title}</h2>
 					{section.subtitle && <p><i>{section.subtitle}</i></p>}
@@ -31,7 +32,12 @@ class SectionDetail extends Component {
 	render() {
 		return (
 			<Container text>
-				{this.renderSection(this.props.section)}
+				<ReactCSSTransitionGroup
+					transitionName='section'
+					transitionEnterTimeout={1000}
+					transitionLeaveTimeout={0.1}>
+					{this.renderSection(this.props.section)}
+				</ReactCSSTransitionGroup>
 			</Container>
 		);
 	}

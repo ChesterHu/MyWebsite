@@ -21,7 +21,6 @@ export default class App extends Component {
 						<InfoCard />
 					</Grid.Column>
 				</Grid>
-				<Game />
 				<Footer />
 			</div>
 		);

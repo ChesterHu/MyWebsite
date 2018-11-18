@@ -27,7 +27,6 @@ class Name extends Component {
 	render() {
 		return (
 			<AnimateOnChange
-				baseClassName='message'
 				animationClassName='message-hovered'
 				animate={this.state.isEng}
 			>
