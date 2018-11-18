@@ -7,6 +7,7 @@ import {
 	MISS,
 	ALL_SHIPS,
 	PLAYER_PLACE_SHIP,
+	ENEMY_PLACE_ALL_SHIPS,
 	PLAYER_ROTATE_SHIP
 } from '../actions/index';
 
@@ -33,6 +34,19 @@ function PlayerBoardReducer(state = initState(), action) {
 	return nextState;
 }
 
+function EnemyBoardReducer(state = initState(), action) {
+	let nextState = JSON.parse(JSON.stringify(state));
+	if (action.type === ENEMY_PLACE_ALL_SHIPS) {
+		const result = placeAllShips(state.board, ALL_SHIPS);
+		if (result.res) {
+			nextState.board = result.board;
+			nextState.ships = ALL_SHIPS.slice();
+		}
+		console.log(nextState.board);
+	}
+	return nextState;
+}
+
 function placeShip(i, j, shipLength, isVertical, board) {
 	let dx = isVertical;
 	let dy = !isVertical;
@@ -54,8 +68,51 @@ function placeShip(i, j, shipLength, isVertical, board) {
 	return true;
 }
 
+function removeShip(i, j, shipLength, isVertical, board) {
+	let di = isVertical;
+	let dj = !isVertical;
+
+	for (let k = 0; k < shipLength; ++k) {
+		board[i][j] = EMPTY;
+		i += di;
+		j += dj;
+	}
+}
+
 function isValid(i, j) {
 	return i >= 0 && j >= 0 && i < NUM_ROWS && j < NUM_COLS;
 }
 
-export { PlayerBoardReducer };
+function placeAllShips(board, all_ships) {
+	const BLOCK = 'B';
+	let result = { res: false };
+	for (let k = 0; k < 50; k++) {
+		let nextBoard = board.map(row => row.map(() => Math.random() < 0.5 ? EMPTY : BLOCK));
+		let ships = all_ships.slice();
+		if (tryPlaceAllShips(nextBoard, ships)) {
+			nextBoard = nextBoard.map(row => row.map(val => val === SHIP ? SHIP: EMPTY));
+			result.board = nextBoard;
+			result.res = true;
+			break;
+		}
+	}
+	return result;
+}
+
+function tryPlaceAllShips(board, ships) {
+	if (ships.length === 0) return true;
+	const nextShips = ships.slice(1);
+	const shipLength = ships[0];
+	for (let i = 0; i < NUM_ROWS; ++i) {
+		for (let j = 0; j < NUM_COLS; ++j) {
+			let isVertical = false;
+			if ((isVertical = placeShip(i, j, shipLength, true, board)) || placeShip(i, j, shipLength, false, board)) {
+				if (tryPlaceAllShips(board, nextShips)) return true;
+				removeShip(i, j, shipLength, isVertical, board);
+			}
+		}
+	}
+	return false;
+}
+
+export { PlayerBoardReducer, EnemyBoardReducer };
