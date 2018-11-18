@@ -12,7 +12,8 @@ import {
 function initState() {
 	return {
 		board: Array(NUM_ROWS).fill().map(() => Array(NUM_COLS).fill(EMPTY)),
-		ships: []
+		ships: [],
+		shipIsVertical: true
 	}
 }
 
@@ -20,12 +21,11 @@ function PlayerBoardReducer(state = initState(), action) {
 	if (action.type === PLAYER_PLACE_SHIP) {
 		if (state.ships.length >= ALL_SHIPS.length) return state;
 		let shipLength = ALL_SHIPS[state.ships.length];
-		let nextBoard = state.board.map(r => r.slice());
-		let nextShips = state.ships.slice();
-		let { i, j, isVertical } = action.payload;
+		let nextState = JSON.parse(JSON.stringify(state));
+		let { i, j } = action.payload;
 		
-		if (placeShip(i, j, shipLength, isVertical, nextBoard)) nextShips.push(shipLength);
-		return { board: nextBoard, ships: nextShips };
+		if (placeShip(i, j, shipLength, nextState.shipIsVertical, nextState.board)) nextState.ships.push(shipLength);
+		return nextState;
 	}
 	return state;
 }
