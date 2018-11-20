@@ -27,10 +27,10 @@ function enemyPlaceAllShips() {
 	});
 }
 
-function playerPlaceShip(i, j, shipLength, isVertical) {
+function playerPlaceShip(i, j) {
 	return ({
 		type: PLAYER_PLACE_SHIP,
-		payload: { i, j, shipLength, isVertical }
+		payload: { i, j }
 	});
 }
 
@@ -63,5 +63,6 @@ export {
 	ALL_SHIPS,
 	PLAYER_PLACE_SHIP,
 	ENEMY_PLACE_ALL_SHIPS,
-	PLAYER_ROTATE_SHIP
+	PLAYER_ROTATE_SHIP,
+	PLAYER_HIT
 };

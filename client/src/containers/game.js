@@ -20,13 +20,13 @@ class Game extends Component {
 					{row.map((value, colIndex) => 
 						<Square 
 							value={value}
-							onClick={() => this.props.playerPlaceShip(rowIndex, colIndex, 3, true)}/>)}
+							onClick={() => this.props.playerPlaceShip(rowIndex, colIndex)}/>)}
 				</div>
 			);
 		});
 	}
 
-	nextShipToPlace() {
+	showNextShipToPlace() {
 		let length = this.props.playerBoard.ships.length;
 		if (length == ALL_SHIPS.length) {
 			return <div>Good! You placed all ships.</div>
@@ -40,7 +40,7 @@ class Game extends Component {
 				<button onClick={() => this.props.playerRotateShip(false)}>Horizontal</button>
 				<button onClick={() => this.props.playerRotateShip(true)}>Vertical</button>
 				<button onClick={() => this.props.enemyPlaceAllShips()}>Start</button>
-			{this.nextShipToPlace()}
+			 {this.showNextShipToPlace()}
 				<div>
 					{this.renderBoard(this.props.playerBoard.board)}
 					<Divider />
