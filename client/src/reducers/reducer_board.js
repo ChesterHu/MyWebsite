@@ -8,7 +8,8 @@ import {
 	ALL_SHIPS,
 	PLAYER_PLACE_SHIP,
 	ENEMY_PLACE_ALL_SHIPS,
-	PLAYER_ROTATE_SHIP
+	PLAYER_ROTATE_SHIP,
+	PLAYER_HIT
 } from '../actions/index';
 
 function initState() {
@@ -42,6 +43,9 @@ function EnemyBoardReducer(state = initState(), action) {
 			nextState.board = result.board;
 			nextState.ships = ALL_SHIPS.slice();
 		}
+	} else if (action.type === PLAYER_HIT) {
+		let {i, j} = action.payload;
+		nextState.board[i][j] = nextState.board[i][j] === SHIP ? HIT : MISS;
 	}
 	return nextState;
 }
