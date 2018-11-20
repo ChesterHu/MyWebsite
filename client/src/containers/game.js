@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Divider } from 'semantic-ui-react';
 
 import Square from '../components/square';
-import { playerPlaceShip, playerRotateShip, enemyPlaceAllShips } from '../actions/index';
+import { 
+	playerPlaceShip, 
+	playerRotateShip, 
+	enemyPlaceAllShips,
+	ALL_SHIPS
+} from '../actions/index';
 
 class Game extends Component {
 
@@ -20,6 +26,13 @@ class Game extends Component {
 		});
 	}
 
+	nextShipToPlace() {
+		let length = this.props.playerBoard.ships.length;
+		if (length == ALL_SHIPS.length) {
+			return <div>Good! You placed all ships.</div>
+		}
+		return <div>Place next ship with {ALL_SHIPS[length]} length</div>
+	}
 
 	render() {
 		return (
@@ -27,15 +40,21 @@ class Game extends Component {
 				<button onClick={() => this.props.playerRotateShip(false)}>Horizontal</button>
 				<button onClick={() => this.props.playerRotateShip(true)}>Vertical</button>
 				<button onClick={() => this.props.enemyPlaceAllShips()}>Start</button>
-				{this.renderBoard(this.props.playerBoard.board)}
+			{this.nextShipToPlace()}
+				<div>
+					{this.renderBoard(this.props.playerBoard.board)}
+					<Divider />
+					{this.renderBoard(this.props.enemyBoard.board)}
+				</div>
 			</div>
 		);
 	}
 }
 
 function mapStateToProps(state) {
+	const { playerBoard, enemyBoard } = state;
 	return ({
-		playerBoard: state.playerBoard
+		playerBoard, enemyBoard
 	});
 }
 
