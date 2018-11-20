@@ -30,7 +30,6 @@ function PlayerBoardReducer(state = initState(), action) {
 		let { i, j } = action.payload;
 		
 		if (placeShip(i, j, shipLength, nextState.shipIsVertical, nextState.board)) nextState.ships.push(shipLength);
-		return nextState;
 	}
 	return nextState;
 }
