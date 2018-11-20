@@ -52,6 +52,7 @@ export {
 	selectSection,
 	playerPlaceShip,
 	playerRotateShip,
+	playerHit,
 	enemyPlaceAllShips,
 	SELECT_SECTION,
 	NUM_ROWS,

@@ -7,20 +7,21 @@ import Square from '../components/square';
 import { 
 	playerPlaceShip, 
 	playerRotateShip, 
+	playerHit,
 	enemyPlaceAllShips,
 	ALL_SHIPS
 } from '../actions/index';
 
 class Game extends Component {
 
-	renderBoard(board) {
+	renderBoard(board, isPlayerBoard = true) {
 		return board.map((row, rowIndex) => {
 			return (
 				<div className='board-row'>
 					{row.map((value, colIndex) => 
 						<Square 
 							value={value}
-							onClick={() => this.props.playerPlaceShip(rowIndex, colIndex)}/>)}
+							onClick={this.handleClick(rowIndex, colIndex, isPlayerBoard)}/>)}
 				</div>
 			);
 		});
@@ -33,6 +34,15 @@ class Game extends Component {
 		}
 		return <div>Place next ship with {ALL_SHIPS[length]} length</div>
 	}
+	
+	handleClick(i, j, isPlayerBoard) {
+		let length = this.props.playerBoard.ships.length;
+		let { playerPlaceShip, playerHit } = this.props;
+		if (isPlayerBoard) {
+			return (() => playerPlaceShip(i, j));
+		}
+		return (() => playerHit(i, j));
+	}
 
 	render() {
 		return (
@@ -40,11 +50,11 @@ class Game extends Component {
 				<button onClick={() => this.props.playerRotateShip(false)}>Horizontal</button>
 				<button onClick={() => this.props.playerRotateShip(true)}>Vertical</button>
 				<button onClick={() => this.props.enemyPlaceAllShips()}>Start</button>
-			 {this.showNextShipToPlace()}
+			 	{this.showNextShipToPlace()}
 				<div>
 					{this.renderBoard(this.props.playerBoard.board)}
 					<Divider />
-					{this.renderBoard(this.props.enemyBoard.board)}
+					{this.renderBoard(this.props.enemyBoard.board, false)}
 				</div>
 			</div>
 		);
@@ -59,7 +69,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({ playerPlaceShip, playerRotateShip, enemyPlaceAllShips }, dispatch);
+	return bindActionCreators({ playerPlaceShip, playerRotateShip, enemyPlaceAllShips, playerHit }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game);
