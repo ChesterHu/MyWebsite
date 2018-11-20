@@ -48,6 +48,13 @@ function playerHit(i, j) {
 	});
 }
 
+function enemyHit(i, j) {
+	return ({
+		type: ENEMY_HIT,
+		payload: { i, j }
+	})
+}
+
 export { 
 	selectSection,
 	playerPlaceShip,
@@ -65,5 +72,6 @@ export {
 	PLAYER_PLACE_SHIP,
 	ENEMY_PLACE_ALL_SHIPS,
 	PLAYER_ROTATE_SHIP,
-	PLAYER_HIT
+	PLAYER_HIT,
+	ENEMY_HIT
 };
