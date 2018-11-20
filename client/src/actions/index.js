@@ -2,6 +2,8 @@ const SELECT_SECTION = 'SELECT_SECTION';
 const PLAYER_ROTATE_SHIP = 'PLAYER_ROTATE_SHIP';
 const PLAYER_PLACE_SHIP = 'PLAYER_PLACE_SHIP';
 const ENEMY_PLACE_ALL_SHIPS = 'ENEMY_PLACE_ALL_SHIPS';
+const PLAYER_HIT = 'PLAYER_HIT';
+const ENEMY_HIT = 'ENEMY_HIT';
 
 const NUM_ROWS = 10;
 const NUM_COLS = 10;
@@ -36,6 +38,13 @@ function playerRotateShip(isVertical) {
 	return ({
 		type: PLAYER_ROTATE_SHIP,
 		payload: isVertical
+	});
+}
+
+function playerHit(i, j) {
+	return ({
+		type: PLAYER_HIT,
+		payload: { i, j }
 	});
 }
 
