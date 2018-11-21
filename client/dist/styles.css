@@ -20,6 +20,11 @@
 	text-shadow: 4px 4px 4px #aaa;
 }
 
+.google-map > div{
+	height: 200px;
+	width: 250px;
+}
+
 .square {
   background: #fff;
   border: 1px solid #999;
