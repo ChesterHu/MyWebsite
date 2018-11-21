@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Container, Divider } from 'semantic-ui-react';
 import { spring, StaggeredMotion } from 'react-motion';
 
+import GoogleMap from '../components/google_map';
+
 const config = { stiffness: 150, damping: 12 };
 const toCSS = (scale) => ({ transform: `scale3d(${scale}, ${scale}, ${scale})` })
 
@@ -44,11 +46,18 @@ class SectionDetail extends Component {
 			</div>
 		);
 	}
+	
+	renderMap() {
+		if (this.props.section.name === 'CONTACT') {
+			return <div className='google-map'><GoogleMap lat={43.472782} lng={-80.542066} /></div>
+		}
+	}
 
 	render() {
 		return (
 			<Container text key={this.props.section.title}>
 				{this.renderSection(this.props.section)}
+				{this.renderMap()}
 			</Container>
 		);
 	}
