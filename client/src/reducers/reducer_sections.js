@@ -1,4 +1,4 @@
-import { SELECT_SECTION } from '../actions/index';
+import { SELECT_SECTION } from '../actions/action_types';
 import { home, projects, teaching, contact } from '../data/contents';
 
 function SectionsReducer(){

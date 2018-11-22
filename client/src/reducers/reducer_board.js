@@ -6,12 +6,8 @@ import {
 	HIT,
 	MISS,
 	ALL_SHIPS,
-	PLAYER_PLACE_SHIP,
-	ENEMY_PLACE_ALL_SHIPS,
-	PLAYER_ROTATE_SHIP,
-	PLAYER_HIT,
-	ENEMY_HIT
 } from '../actions/index';
+import * as actionType from '../actions/action_types';
 
 function initState() {
 	return {
@@ -23,15 +19,15 @@ function initState() {
 
 function PlayerBoardReducer(state = initState(), action) {
 	let nextState = JSON.parse(JSON.stringify(state));
-	if (action.type === PLAYER_ROTATE_SHIP) {
+	if (action.type === actionType.PLAYER_ROTATE_SHIP) {
 		nextState.shipIsVertical = action.payload;
-	} else if (action.type === PLAYER_PLACE_SHIP) {
+	} else if (action.type === actionType.PLAYER_PLACE_SHIP) {
 		if (state.ships.length >= ALL_SHIPS.length) return state;
 		const shipLength = ALL_SHIPS[state.ships.length];
 		const { i, j } = action.payload;
 		
 		if (placeShip(i, j, shipLength, nextState.shipIsVertical, nextState.board)) nextState.ships.push(shipLength);
-	} else if (action.type === ENEMY_HIT) {
+	} else if (action.type === actionType.ENEMY_HIT) {
 		const { i, j } = action.payload;
 		hitBoard(i, j, nextState.board);
 	}
@@ -40,13 +36,13 @@ function PlayerBoardReducer(state = initState(), action) {
 
 function EnemyBoardReducer(state = initState(), action) {
 	let nextState = JSON.parse(JSON.stringify(state));
-	if (action.type === ENEMY_PLACE_ALL_SHIPS) {
+	if (action.type === actionType.ENEMY_PLACE_ALL_SHIPS) {
 		const result = placeAllShips(state.board, ALL_SHIPS);
 		if (result.res) {
 			nextState.board = result.board;
 			nextState.ships = ALL_SHIPS.slice();
 		}
-	} else if (action.type === PLAYER_HIT) {
+	} else if (action.type === actionType.PLAYER_HIT) {
 		const {i, j} = action.payload;
 		hitBoard(i, j, nextState.board);
 	}
