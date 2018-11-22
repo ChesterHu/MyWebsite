@@ -14,15 +14,17 @@ class Name extends Component {
 		}
 	}
 
-	handleMouseEnter() {
-		this.setState({
-			isEng: true
-		});	
+	componentDidMount() {
+		this.timer = setInterval(() => this.tick(), 3000);	
 	}
 
-	handleMouseLeave() {
+	componentWillUnmount() {
+		clearInterval(this.timer);
+	}
+
+	tick() {
 		this.setState({
-			isEng: false
+			isEng: !this.state.isEng
 		});
 	}
 
@@ -36,8 +38,6 @@ class Name extends Component {
 						<div 
 							className='name'
 							style={toCSS(style.rotateX)}
-							onMouseEnter={() => this.handleMouseEnter()}
-							onMouseLeave={() => this.handleMouseLeave()}
 						>
 							{this.state.isEng ? this.state.eng_name : this.state.cn_name}
 						</div>
