@@ -6,7 +6,7 @@ import {
 	HIT,
 	MISS,
 	ALL_SHIPS,
-} from '../actions/index';
+} from '../config/game_params';
 import * as actionType from '../actions/action_types';
 
 function initState() {
@@ -17,7 +17,7 @@ function initState() {
 	}
 }
 
-function PlayerBoardReducer(state = initState(), action) {
+export function PlayerBoardReducer(state = initState(), action) {
 	let nextState = JSON.parse(JSON.stringify(state));
 	if (action.type === actionType.PLAYER_ROTATE_SHIP) {
 		nextState.shipIsVertical = action.payload;
@@ -34,7 +34,7 @@ function PlayerBoardReducer(state = initState(), action) {
 	return nextState;
 }
 
-function EnemyBoardReducer(state = initState(), action) {
+export function EnemyBoardReducer(state = initState(), action) {
 	let nextState = JSON.parse(JSON.stringify(state));
 	if (action.type === actionType.ENEMY_PLACE_ALL_SHIPS) {
 		const result = placeAllShips(state.board, ALL_SHIPS);
@@ -123,4 +123,3 @@ function tryPlaceAllShips(board, ships) {
 	return false;
 }
 
-export { PlayerBoardReducer, EnemyBoardReducer };

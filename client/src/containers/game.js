@@ -4,13 +4,14 @@ import { bindActionCreators } from 'redux';
 import { Divider } from 'semantic-ui-react';
 
 import Square from '../components/square';
+import { ALL_SHIPS } from '../config/game_params';
+
 import { 
 	playerPlaceShip, 
 	playerRotateShip, 
 	playerHit,
 	enemyHit,
 	enemyPlaceAllShips,
-	ALL_SHIPS
 } from '../actions/index';
 
 class Game extends Component {
