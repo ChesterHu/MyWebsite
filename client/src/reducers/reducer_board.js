@@ -1,3 +1,4 @@
+import * as actionType from '../actions/action_types';
 import { 
 	NUM_ROWS, 
 	NUM_COLS,
@@ -7,7 +8,6 @@ import {
 	MISS,
 	ALL_SHIPS,
 } from '../config/game_params';
-import * as actionType from '../actions/action_types';
 
 function initState() {
 	return {
