@@ -8,6 +8,7 @@ import {
 	playerPlaceShip, 
 	playerRotateShip, 
 	playerHit,
+	enemyHit,
 	enemyPlaceAllShips,
 	ALL_SHIPS
 } from '../actions/index';
@@ -37,11 +38,14 @@ class Game extends Component {
 	
 	handleClick(i, j, isPlayerBoard) {
 		let length = this.props.playerBoard.ships.length;
-		let { playerPlaceShip, playerHit } = this.props;
+		let { playerPlaceShip, playerHit, enemyHit } = this.props;
 		if (isPlayerBoard) {
 			return (() => playerPlaceShip(i, j));
 		}
-		return (() => playerHit(i, j));
+		return (() => {
+			playerHit(i, j);
+			enemyHit(i, j);
+		});
 	}
 
 	render() {
@@ -69,7 +73,13 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({ playerPlaceShip, playerRotateShip, enemyPlaceAllShips, playerHit }, dispatch);
+	return bindActionCreators({ 
+		playerPlaceShip, 
+		playerRotateShip, 
+		enemyPlaceAllShips, 
+		playerHit,
+		enemyHit,
+	}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game);

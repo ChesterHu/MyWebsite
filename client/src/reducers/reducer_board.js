@@ -9,7 +9,8 @@ import {
 	PLAYER_PLACE_SHIP,
 	ENEMY_PLACE_ALL_SHIPS,
 	PLAYER_ROTATE_SHIP,
-	PLAYER_HIT
+	PLAYER_HIT,
+	ENEMY_HIT
 } from '../actions/index';
 
 function initState() {
@@ -26,10 +27,13 @@ function PlayerBoardReducer(state = initState(), action) {
 		nextState.shipIsVertical = action.payload;
 	} else if (action.type === PLAYER_PLACE_SHIP) {
 		if (state.ships.length >= ALL_SHIPS.length) return state;
-		let shipLength = ALL_SHIPS[state.ships.length];
-		let { i, j } = action.payload;
+		const shipLength = ALL_SHIPS[state.ships.length];
+		const { i, j } = action.payload;
 		
 		if (placeShip(i, j, shipLength, nextState.shipIsVertical, nextState.board)) nextState.ships.push(shipLength);
+	} else if (action.type === ENEMY_HIT) {
+		const { i, j } = action.payload;
+		hitBoard(i, j, nextState.board);
 	}
 	return nextState;
 }
@@ -43,8 +47,8 @@ function EnemyBoardReducer(state = initState(), action) {
 			nextState.ships = ALL_SHIPS.slice();
 		}
 	} else if (action.type === PLAYER_HIT) {
-		let {i, j} = action.payload;
-		nextState.board[i][j] = nextState.board[i][j] === SHIP ? HIT : MISS;
+		const {i, j} = action.payload;
+		hitBoard(i, j, nextState.board);
 	}
 	return nextState;
 }
@@ -78,6 +82,12 @@ function removeShip(i, j, shipLength, isVertical, board) {
 		board[i][j] = EMPTY;
 		i += di;
 		j += dj;
+	}
+}
+
+function hitBoard(i, j, board) {
+	if (board[i][j] === EMPTY || board[i][j] === SHIP) {
+		board[i][j] = board[i][j] === SHIP ? HIT : MISS;	
 	}
 }
 
