@@ -62,7 +62,7 @@ const projects = {
 const contact = {
 	name: 'CONTACT',
 	title: 'Contact Information',
-	subtitle: 'If you want to discuss anything, please fell free to email me',
+	subtitle: 'If you want to discuss anything, please feel free to email me',
 	subsections: [
 		{
 			paragraphs: [
