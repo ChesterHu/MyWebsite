@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Divider } from 'semantic-ui-react';
+import { Divider, Button } from 'semantic-ui-react';
 
 import Square from '../components/square';
-import { ALL_SHIPS } from '../config/game_params';
+import { ALL_SHIPS, NUM_ROWS, NUM_COLS } from '../config/game_params';
 
 import { 
 	playerPlaceShip, 
@@ -15,6 +15,16 @@ import {
 } from '../actions/index';
 
 class Game extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			gameStart: false,
+			enemy: {
+				hitCandidates: [],
+			}
+		}
+	}
 
 	renderBoard(board, isPlayerBoard = true) {
 		return board.map((row, rowIndex) => {
@@ -40,6 +50,7 @@ class Game extends Component {
 	handleClick(i, j, isPlayerBoard) {
 		let length = this.props.playerBoard.ships.length;
 		let { playerPlaceShip, playerHit, enemyHit } = this.props;
+
 		if (isPlayerBoard) {
 			return (() => playerPlaceShip(i, j));
 		}
@@ -52,14 +63,38 @@ class Game extends Component {
 	render() {
 		return (
 			<div>
-				<button onClick={() => this.props.playerRotateShip(false)}>Horizontal</button>
-				<button onClick={() => this.props.playerRotateShip(true)}>Vertical</button>
-				<button onClick={() => this.props.enemyPlaceAllShips()}>Start</button>
-			 	{this.showNextShipToPlace()}
 				<div>
-					{this.renderBoard(this.props.playerBoard.board)}
-					<Divider />
-					{this.renderBoard(this.props.enemyBoard.board, false)}
+					<Button 
+						primary
+						onClick={() => this.props.playerRotateShip(false)}>
+						Horizontal
+					</Button>
+					<Button 
+						primary
+						onClick={() => this.props.playerRotateShip(true)}>
+						Vertical
+					</Button>
+					<Button 
+						secondary
+						onClick={() => { 
+							this.props.enemyPlaceAllShips();
+							this.setState({gameStart: true});
+						}}>
+						Start
+					</Button>
+					<br />
+					{this.showNextShipToPlace()}
+				</div>
+				<div>
+					<div key='playerBoard'>
+						{this.renderBoard(this.props.playerBoard.board)}
+					</div>
+					{this.state.gameStart &&
+						<div key='enemyBoard'>
+							<Divider />
+							{this.renderBoard(this.props.enemyBoard.board, false)}
+						</div>
+					}
 				</div>
 			</div>
 		);
