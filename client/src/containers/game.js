@@ -71,37 +71,49 @@ class Game extends Component {
 	}
 
 	render() {
+		const playerHealth = this.props.playerBoard.health;
+		const enemyHealth = this.props.enemyBoard.health;
+		console.log(playerHealth, enemyHealth);
 		return (
 			<div>
+				{(playerHealth === 0 || enemyHealth === 0) && 
 				<div>
-					<Button 
-						primary
-						onClick={() => this.props.playerRotateShip(false)}>
-						Horizontal
-					</Button>
-					<Button 
-						primary
-						onClick={() => this.props.playerRotateShip(true)}>
-						Vertical
-					</Button>
-					<Button 
-						secondary
-						onClick={() => { 
-							this.props.enemyPlaceAllShips();
-							this.setState({gameStart: true});
-						}}>
-						Start
-					</Button>
-					<br />
-					{this.showNextShipToPlace()}
+					<h2>Winner is {enemyHealth === 0 ? "Player" : "Enemy"}</h2>	
 				</div>
+				}
+				{!this.state.gameStart && 
+					<div>
+						<Button 
+							primary
+							onClick={() => this.props.playerRotateShip(false)}>
+							Horizontal
+						</Button>
+						<Button 
+							primary
+							onClick={() => this.props.playerRotateShip(true)}>
+							Vertical
+						</Button>
+						<Button 
+							secondary
+							onClick={() => { 
+								this.props.enemyPlaceAllShips();
+								this.setState({gameStart: true});
+							}}>
+							Start
+						</Button>
+						<br />
+						{this.showNextShipToPlace()}
+					</div>
+				}
 				<div>
 					<div key='playerBoard'>
+						<h4>Your Board</h4>
 						{this.renderBoard(this.props.playerBoard.board)}
 					</div>
 					{this.state.gameStart &&
 						<div key='enemyBoard'>
 							<Divider />
+							<h4>Enemy Board</h4>
 							{this.renderBoard(this.props.enemyBoard.board, false)}
 						</div>
 					}

@@ -13,7 +13,8 @@ function initState() {
 	return {
 		board: Array(NUM_ROWS).fill().map(() => Array(NUM_COLS).fill(EMPTY)),
 		ships: [],
-		shipIsVertical: true
+		shipIsVertical: true,
+		health: 0,
 	}
 }
 
@@ -26,10 +27,15 @@ export function PlayerBoardReducer(state = initState(), action) {
 		const shipLength = ALL_SHIPS[state.ships.length];
 		const { i, j } = action.payload;
 		
-		if (placeShip(i, j, shipLength, nextState.shipIsVertical, nextState.board)) nextState.ships.push(shipLength);
+		if (placeShip(i, j, shipLength, nextState.shipIsVertical, nextState.board)) {
+			nextState.ships.push(shipLength);
+			nextState.health += shipLength;
+		}
 	} else if (action.type === actionType.ENEMY_HIT) {
 		const { i, j } = action.payload;
-		hitBoard(i, j, nextState.board);
+		if (hitBoard(i, j, nextState.board)) {
+			nextState.health--;
+		}
 	}
 	return nextState;
 }
@@ -41,10 +47,13 @@ export function EnemyBoardReducer(state = initState(), action) {
 		if (result.res) {
 			nextState.board = result.board;
 			nextState.ships = ALL_SHIPS.slice();
+			nextState.health = ALL_SHIPS.reduce((a, b) => a + b);
 		}
 	} else if (action.type === actionType.PLAYER_HIT) {
 		const {i, j} = action.payload;
-		hitBoard(i, j, nextState.board);
+		if (hitBoard(i, j, nextState.board)) {
+			nextState.health--;
+		}
 	}
 	return nextState;
 }
@@ -82,9 +91,13 @@ function removeShip(i, j, shipLength, isVertical, board) {
 }
 
 function hitBoard(i, j, board) {
-	if (board[i][j] === EMPTY || board[i][j] === SHIP) {
-		board[i][j] = board[i][j] === SHIP ? HIT : MISS;	
+	if (board[i][j] === SHIP) {
+		board[i][j] = HIT;
+		return true;
+	} else if (board[i][j] === EMPTY) {
+		board[i][j] = MISS;
 	}
+	return false;
 }
 
 function isValid(i, j) {
