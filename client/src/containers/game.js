@@ -21,7 +21,7 @@ class Game extends Component {
 		this.state = {
 			gameStart: false,
 			enemy: {
-				hitCandidates: [],
+				hitCandidates: [...Array(NUM_ROWS * NUM_COLS).keys()].map(idx => [Math.floor(idx / NUM_ROWS), idx % NUM_ROWS]),
 			}
 		}
 	}
@@ -56,8 +56,18 @@ class Game extends Component {
 		}
 		return (() => {
 			playerHit(i, j);
-			enemyHit(i, j);
+			this.enemyHitEasy();
 		});
+	}
+
+	enemyHitEasy() {
+		const { hitCandidates } = this.state.enemy;
+		const len = hitCandidates.length;
+		if (len == 0) return;
+		const r = Math.floor(Math.random() * len);
+		this.props.enemyHit(hitCandidates[r][0], hitCandidates[r][1]);
+		hitCandidates[r] = hitCandidates[len - 1];
+		hitCandidates.pop();
 	}
 
 	render() {
