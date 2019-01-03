@@ -39,9 +39,6 @@ class Game extends Component {
 		});
 	}
 
-	showNextShipToPlace() {
-	}
-	
 	handleClick(i, j, isPlayerBoard) {
 		let length = this.props.playerBoard.ships.length;
 		let { playerPlaceShip, playerHit, enemyHit } = this.props;
