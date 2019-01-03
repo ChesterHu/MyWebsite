@@ -40,16 +40,6 @@ class Game extends Component {
 	}
 
 	showNextShipToPlace() {
-		let length = this.props.playerBoard.ships.length;
-		if (length == ALL_SHIPS.length) {
-			return (
-				<div>
-					Good! You placed all ships.
-					<button onClick={() => this.start()} >Start</button>
-				</div>
-			);
-		}
-		return <div>Place next ship with {ALL_SHIPS[length]} length</div>
 	}
 	
 	handleClick(i, j, isPlayerBoard) {
@@ -80,29 +70,42 @@ class Game extends Component {
 		this.props.enemyPlaceAllShips();
 	}
 
-	render() {
+	gameStatus() {
+		const { gameStart } = this.state;
 		const playerHealth = this.props.playerBoard.health;
 		const enemyHealth = this.props.enemyBoard.health;
-		console.log(playerHealth, enemyHealth);
+		const length = this.props.playerBoard.ships.length;
+
+		if (gameStart) {
+			if (playerHealth === 0 || enemyHealth === 0) {
+				return <h2>{enemyHealth === 0 ? 'You' : 'Enemy'} wins</h2>;
+			}
+		} else if (this.props.playerBoard.ships.length === ALL_SHIPS.length){
+			return (
+				<div>
+					Good! You placed all ships. Please click the button to start game.
+					<button onClick={() => this.start()} >Start</button>
+				</div>
+			);	
+		} else {
+			return (
+				<div>
+					<div onChange={(e) => this.props.playerRotateShip(e.target.value === VERTICAL)}>
+						Place next ship with {ALL_SHIPS[length]} length:
+						<label for="shipDirVer">vertical</label>
+						<input type="radio" id="shipDirVer" name="shipDir" value={VERTICAL} defaultChecked />
+						<label for="shipDirHor">horizontal</label>
+						<input type="radio" id="shipDirHor" name="shipDir" value={HORIZONTAL} />
+					</div>
+				</div>
+			);
+		}
+	}
+
+	render() {
 		return (
 			<div className="game">
-				{this.state.gameStart && (playerHealth === 0 || enemyHealth === 0) && 
-				<div>
-					<h2>Winner is {enemyHealth === 0 ? "Player" : "Enemy"}</h2>	
-				</div>
-				}
-				{!this.state.gameStart && 
-					<div>
-						<div onChange={(e) => this.props.playerRotateShip(e.target.value === VERTICAL)}>
-							<label for="shipDirVer">Vertical</label>
-							<input type="radio" id="shipDirVer" name="shipDir" value={VERTICAL} defaultChecked />
-							<label for="shipDirHor">Horizontal</label>
-							<input type="radio" id="shipDirHor" name="shipDir" value={HORIZONTAL} />
-						</div>
-						<br />
-						{this.showNextShipToPlace()}
-					</div>
-				}
+				{this.gameStatus()}
 				<div>
 					<div key='playerBoard'>
 						<h4>Your Board</h4>

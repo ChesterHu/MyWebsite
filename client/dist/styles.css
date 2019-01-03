@@ -2,6 +2,10 @@
 	font-family: 'Open Sans', sans-serif;
 }
 
+input, label {
+	margin: 5px;
+}
+
 .footer {
 	position: static;
 	bottom: 0;
@@ -68,3 +72,4 @@
 	opacity: 1;
 	transition: opacity 1000ms ease-in;
 }
+
