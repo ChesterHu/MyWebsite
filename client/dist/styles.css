@@ -21,22 +21,33 @@
 }
 
 .google-map > div{
-	height: 200px;
-	width: 250px;
+	height: 400px;
+	width: 500px;
 }
 
 .square {
   background: #fff;
   border: 1px solid #999;
+	float: left;
   font-size: 24px;
   font-weight: bold;
   line-height: 34px;
+	margin-right: -1px;
+	margin-top: -1px;
   height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
+  width: 34px;
   padding: 0;
   text-align: center;
-  width: 34px;
+}
+
+.board-row {
+	clear: both;
+	content: "";
+	display: table;
+}
+
+.game {
+	margin-left: 20px;
 }
 
 .message-hovered {

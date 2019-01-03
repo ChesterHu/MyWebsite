@@ -7,6 +7,7 @@ import {
 	HIT,
 	MISS,
 	ALL_SHIPS,
+	TOTAL_HEALTH,
 } from '../config/game_params';
 
 function initState() {

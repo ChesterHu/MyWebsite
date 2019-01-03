@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { Divider, Button } from 'semantic-ui-react';
 
 import Square from '../components/square';
-import { ALL_SHIPS, NUM_ROWS, NUM_COLS } from '../config/game_params';
+import { ALL_SHIPS, NUM_ROWS, NUM_COLS, VERTICAL, HORIZONTAL } from '../config/game_params';
 
 import { 
 	playerPlaceShip, 
@@ -29,7 +29,7 @@ class Game extends Component {
 	renderBoard(board, isPlayerBoard = true) {
 		return board.map((row, rowIndex) => {
 			return (
-				<div className='board-row'>
+				<div className="board-row">
 					{row.map((value, colIndex) => 
 						<Square 
 							value={value}
@@ -42,7 +42,12 @@ class Game extends Component {
 	showNextShipToPlace() {
 		let length = this.props.playerBoard.ships.length;
 		if (length == ALL_SHIPS.length) {
-			return <div>Good! You placed all ships.</div>
+			return (
+				<div>
+					Good! You placed all ships.
+					<button onClick={() => this.start()} >Start</button>
+				</div>
+			);
 		}
 		return <div>Place next ship with {ALL_SHIPS[length]} length</div>
 	}
@@ -70,37 +75,30 @@ class Game extends Component {
 		hitCandidates.pop();
 	}
 
+	start() {
+		this.setState({gameStart: true});
+		this.props.enemyPlaceAllShips();
+	}
+
 	render() {
 		const playerHealth = this.props.playerBoard.health;
 		const enemyHealth = this.props.enemyBoard.health;
 		console.log(playerHealth, enemyHealth);
 		return (
-			<div>
-				{(playerHealth === 0 || enemyHealth === 0) && 
+			<div className="game">
+				{this.state.gameStart && (playerHealth === 0 || enemyHealth === 0) && 
 				<div>
 					<h2>Winner is {enemyHealth === 0 ? "Player" : "Enemy"}</h2>	
 				</div>
 				}
 				{!this.state.gameStart && 
 					<div>
-						<Button 
-							primary
-							onClick={() => this.props.playerRotateShip(false)}>
-							Horizontal
-						</Button>
-						<Button 
-							primary
-							onClick={() => this.props.playerRotateShip(true)}>
-							Vertical
-						</Button>
-						<Button 
-							secondary
-							onClick={() => { 
-								this.props.enemyPlaceAllShips();
-								this.setState({gameStart: true});
-							}}>
-							Start
-						</Button>
+						<div onChange={(e) => this.props.playerRotateShip(e.target.value === VERTICAL)}>
+							<label for="shipDirVer">Vertical</label>
+							<input type="radio" id="shipDirVer" name="shipDir" value={VERTICAL} defaultChecked />
+							<label for="shipDirHor">Horizontal</label>
+							<input type="radio" id="shipDirHor" name="shipDir" value={HORIZONTAL} />
+						</div>
 						<br />
 						{this.showNextShipToPlace()}
 					</div>
