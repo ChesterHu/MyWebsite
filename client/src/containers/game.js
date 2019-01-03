@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { Divider, Button } from 'semantic-ui-react';
 
 import Square from '../components/square';
-import { ALL_SHIPS, NUM_ROWS, NUM_COLS, VERTICAL, HORIZONTAL } from '../config/game_params';
+import { SHIP, ALL_SHIPS, NUM_ROWS, NUM_COLS, VERTICAL, HORIZONTAL } from '../config/game_params';
 
 import { 
 	playerPlaceShip, 
@@ -32,7 +32,7 @@ class Game extends Component {
 				<div className="board-row">
 					{row.map((value, colIndex) => 
 						<Square 
-							value={value}
+							value={value == SHIP && !isPlayerBoard ? " " : value}
 							onClick={this.handleClick(rowIndex, colIndex, isPlayerBoard)}/>)}
 				</div>
 			);
