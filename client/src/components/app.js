@@ -5,7 +5,6 @@ import InfoCard from './info_card';
 import Footer from './footer';
 import SectionList from '../containers/section_list';
 import SectionDetail from '../containers/section_detail';
-import Game from '../containers/game';
 
 export default class App extends Component {
 	render() {
@@ -21,7 +20,6 @@ export default class App extends Component {
 						<InfoCard />
 					</Grid.Column>
 				</Grid>
-				<Game />
 				<Footer />
 			</div>
 		);
