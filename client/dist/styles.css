@@ -2,6 +2,10 @@
 	font-family: 'Open Sans', sans-serif;
 }
 
+#root {
+	height: 100%;
+}
+
 input, label {
 	margin: 5px;
 }
@@ -9,7 +13,6 @@ input, label {
 .footer {
 	position: static;
 	bottom: 0;
-	width: 100%;
 	text-align: center;
 	height: 100px;
 }
@@ -46,22 +49,20 @@ input, label {
 
 .board-row {
 	clear: both;
-	content: "";
-	display: table;
+	margin-left: auto;
+	width: 73%;
 }
 
 .game {
-	margin-left: 20px;
+	text-align: center;
+	height: 100%;
 }
 
-.message-hovered {
-  animation-name: hovered-keyframes;
-	animation-duration: 1s;
-}
-
-@keyframes hovered-keyframes {
-  from {opacity: 0.01;}
-  to {opacity: 1;}
+.board {
+	margin: auto;
+	width: 50%;
+	height: 400px;
+	text-align: center;
 }
 
 .section-enter {

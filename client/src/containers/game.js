@@ -103,19 +103,16 @@ class Game extends Component {
 		return (
 			<div className="game">
 				{this.gameStatus()}
-				<div>
-					<div key='playerBoard'>
+					<div className="board" key='playerBoard'>
 						<h4>Your Board</h4>
 						{this.renderBoard(this.props.playerBoard.board)}
 					</div>
 					{this.state.gameStart &&
-						<div key='enemyBoard'>
-							<Divider />
+						<div className="board" key='enemyBoard'>
 							<h4>Enemy Board</h4>
 							{this.renderBoard(this.props.enemyBoard.board, false)}
 						</div>
 					}
-				</div>
 			</div>
 		);
 	}
