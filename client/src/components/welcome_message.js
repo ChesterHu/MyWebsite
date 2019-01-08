@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class WelcomeMessage extends Component {
 	constructor(props) {
@@ -69,9 +70,11 @@ class WelcomeMessage extends Component {
 
 	render() {
 		return (
-			<div class='welcome'>
-				{this.state.current_msg}
-			</div>	
+			<Link to="/game">
+				<div class='welcome'>
+					{this.state.current_msg}
+				</div>	
+			</Link>
 		);
 	}
 

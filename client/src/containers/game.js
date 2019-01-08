@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Divider, Button } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 import Square from '../components/square';
 import { SHIP, ALL_SHIPS, NUM_ROWS, NUM_COLS, VERTICAL, HORIZONTAL } from '../config/game_params';
@@ -113,6 +114,7 @@ class Game extends Component {
 							{this.renderBoard(this.props.enemyBoard.board, false)}
 						</div>
 					}
+					<Link to="/">Home Page</Link>
 			</div>
 		);
 	}
