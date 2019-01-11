@@ -1,3 +1,3 @@
 # My personal website
 
-deployed at [heroku](https://chester-website.herokuapp.com)
+deployed at [github](https://chesterhu.github.io/MyWebsite/)
