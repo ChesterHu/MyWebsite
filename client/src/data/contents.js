@@ -4,7 +4,7 @@ const home = {
 	subsections: [
 		{
 			header: 'About me',
-			paragraphs: ["I'm a research-based Master student in computer science at University of Waterloo, I'm current working at the scientific computing lab under the supervision of Professor Yuying Li. My research focuses on reinforcement learning in finite horizon. Besides, I have a great interest in machine learning and software development."]
+			paragraphs: ["I'm a research-based Master student in computer science at University of Waterloo, I'm current working at the scientific computing lab under the supervision of Professor Yuying Li and Professor Kimon Fountoulakis. My research focuses on optimization in graph clustering. Besides, I have a great interest in machine learning and software development."]
 		},
 		{
 			header: 'About this site',
