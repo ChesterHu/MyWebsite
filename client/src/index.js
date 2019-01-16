@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import App from './components/app';
 import Game from './containers/game';
+import Gallery from "./components/gallery";
 import reducer from './reducers/index';
 
 const store = createStore(reducer);
@@ -14,6 +15,7 @@ render(
 	<Provider store={store}>
 		<BrowserRouter>
 			<Switch>
+				<Route path="/gallery" component={Gallery} />
 				<Route path="/game" component={Game} />
 				<Route path="/" component={App} />
 			</Switch>
