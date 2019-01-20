@@ -1,7 +1,5 @@
 import React from 'react';
 
-import InfoCard from './info_card';
-
 const About = () => {
     return (
         <div id="about" className="section">
@@ -64,6 +62,18 @@ const Contact = () => {
     );
 }
 
+const Picture = () => {
+    return (
+		<div className="card">
+			<img className="card-img-top" src={require('../images/my-photo.jpg')} />
+			<div className="card-body">
+				<h5 class="card-title">Chufeng Hu</h5>
+				<p className="card-text">I'm graduate student in computer scince, I love math and coding</p>
+			</div>
+		</div>
+	);
+}
+
 const Footer = () => {
     return (
 		<div class="footer">
@@ -77,16 +87,20 @@ export default () => {
     const projects = Projects();
     const teaching = Teaching();
     const contact = Contact();
+    const picture = Picture();
     const footer = Footer();
     return (
         <div className="container">
             <div className="row">
-                <div className="col-lg-12">
+                <div className="col-lg-9">
                     {about}
                     {projects}
                     {teaching}
                     {contact}
                     {footer}
+                </div>
+                <div className="col-lg-3">
+                    {picture}
                 </div>
             </div>
         </div>
