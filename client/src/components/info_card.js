@@ -24,7 +24,7 @@ const InfoCard = () => {
 				<Card.Header>Chufeng Hu</Card.Header>
 				<Card.Meta>University of Waterloo</Card.Meta>
 				<Card.Description>
-					I'm graduate student in computer scince, I love math and coding.
+					I'm graduate student in computer science, I love math and coding.
 				</Card.Description>
 			</Card.Content>
 			<Card.Content extra>
