@@ -37,3 +37,7 @@ hr {
     padding-bottom: 20px;
     padding-top: 10px;
 }
+
+.card-text {
+    font-size: 1rem;
+}
