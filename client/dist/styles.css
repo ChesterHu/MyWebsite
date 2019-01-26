@@ -17,7 +17,12 @@ body {
     font-size: 1rem;
     color: black;
 }
-
+.navbar-dark .navbar-nav .nav-link {
+    color: #c8cac8;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #17a017;
+}
 .header {
     background: linear-gradient(90deg,#203a45 0,#294e59);
     padding: 1rem 0 5rem;
