@@ -20,6 +20,9 @@ export default () => {
                     <a className="nav-link" href="#" >GitHub</a>
                 </li>
                 <li className="nav-item">
+                    <a className="nav-link" href="#">Facebook</a>
+                </li>
+                <li className="nav-item">
                     <a className="nav-link" href="#">Gallery</a>
                 </li>
                 </ul>

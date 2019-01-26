@@ -4,7 +4,7 @@ const About = () => {
     return (
         <div id="about" className="card">
             <div className="card-header">
-                <i class="fas fa-user-graduate"></i> About
+                About
             </div>
             <div className="card-body">
                 <p>I'm a research-based Master student in computer science at University of Waterloo, I'm current working at the scientific computing lab under the supervision of Professor Yuying Li and Professor Kimon Fountoulakis. My research focuses on optimization in graph clustering. Besides, I have a great interest in machine learning and software development.</p>
@@ -18,7 +18,7 @@ const Projects = () => {
     return (
         <div className="card">
             <div className="card-header">
-                <i class="far fa-file-code"></i> Selected Project
+                Selected Project
             </div>
             <div className="card-body">
                 <h6>Automated Media Platform</h6>
@@ -38,7 +38,7 @@ const Teaching = () => {
     return (
         <div className="card">
             <div className="card-header">
-                <i class="fas fa-chalkboard-teacher"></i> Teaching Experience
+                Teaching Experience
             </div>
             <div className="card-body">
                 <p>Teaching assistant is a role I love to play during my graduate study, Until now, I have TA'ed courses in computer science and statistics</p>
@@ -58,7 +58,7 @@ const Contact = () => {
     return (
         <div className="card">
             <div className="card-header">
-                <i class="fas fa-search-location"></i> Contact
+                Contact
             </div>
             <div className="card-body">
                 <p>If you want to discuss anything, please feel free to email me</p>
@@ -92,7 +92,28 @@ export default () => {
         <main className="content">
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-7">
+                    <div className="col-lg-3">
+                        <div className="container sticky-top">
+                            <div className="card">
+                                <div className="card-header">
+                                    <i class="fas fa-home"></i> Home
+                                </div>
+                                <div className="card-header">
+                                    <i class="fas fa-user-secret"></i> About
+                                </div>
+                                <div className="card-header">
+                                    <i class="far fa-file-code"></i> Projects
+                                </div>
+                                <div className="card-header">
+                                    <i class="fas fa-book"></i> Teaching
+                                </div>
+                                <div className="card-header">
+                                    <i class="far fa-compass"></i> Contact
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-9">
                         {about}
                         {projects}
                         {teaching}

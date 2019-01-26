@@ -42,13 +42,24 @@ body {
     box-shadow: 0 2px 4px 2px rgba(0,0,0,.05);
 }
 
+.sticky-top {
+    top: 1rem;
+}
+
 .card-header {
     text-transform: uppercase;
 }
 
+.container .sticky-top .card-header {
+    color: gray;
+    text-transform: none;
+    background: white;
+}
+
 i {
-    font-size: 1.2rem;
+    width: 1rem;
     margin-right: 0.3rem;
+    color: black;
 }
 
 h6 {
