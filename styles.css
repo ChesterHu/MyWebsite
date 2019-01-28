@@ -1,77 +1,96 @@
-* {
-	font-family: 'Open Sans', sans-serif;
+body {
+    font-family: "Lato";
+    background: #ecf0f1;
 }
 
-#root {
-	height: 100%;
+.navbar {
+    background: linear-gradient(90deg,#203a45 0,#294e59);
 }
 
-input, label {
-	margin: 5px;
+.navbar-brand img {
+    width: 7rem;
+    height: 1.7rem;
+}
+
+.navbar-dark .navbar-brand:hover,
+.navbar-dark .navbar-brand {
+    font-size: 1rem;
+    color: black;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #c8cac8;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #17a017;
+}
+.header {
+    background: linear-gradient(90deg,#203a45 0,#294e59);
+    padding: 1rem 0 5rem;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 
+                 0px 8px 13px rgba(0,0,0,0.1),
+                 0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.header .avatar {
+    width: 5rem;
+    height: 5rem;
+}
+
+.content {
+    margin-top: -3rem;
+}
+
+.card {
+    margin-bottom: 2rem;
+    border-radius: 0;
+    border: 0 solid rgba(0,0,0,.125);
+    box-shadow: 0 2px 4px 2px rgba(0,0,0,.05);
+}
+
+.sticky-top {
+    top: 1rem;
+}
+
+.card-header {
+    text-transform: uppercase;
+}
+
+.container .sticky-top .card-header {
+    color: gray;
+    text-transform: none;
+    background: white;
+    cursor: pointer;
+}
+
+.container .sticky-top .card-header:hover {
+    background: #9aeeaf4f;
+}
+
+i {
+    width: 1rem;
+    margin-right: 0.3rem;
+    color: black;
+}
+
+h6 {
+    font-weight: 700;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
 
 .footer {
-	position: static;
-	bottom: 0;
-	text-align: center;
-	height: 100px;
+    text-align: center;
 }
 
-.name {
-  font-family: 'Tangerine', serif;
-  font-size: 48px;
-  text-shadow: 4px 4px 4px #aaa;
+.section {
+    padding-bottom: 20px;
+    padding-top: 10px;
 }
 
-.welcome {
-	text-shadow: 4px 4px 4px #aaa;
+.card-text {
+    font-size: 1rem;
 }
-
-.google-map > div{
-	height: 400px;
-	width: 500px;
-}
-
-.square {
-  background: #fff;
-  border: 1px solid #999;
-	float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-	margin-right: -1px;
-	margin-top: -1px;
-  height: 34px;
-  width: 34px;
-  padding: 0;
-  text-align: center;
-}
-
-.board-row {
-	clear: both;
-	margin-left: auto;
-	width: 73%;
-}
-
-.game {
-	text-align: center;
-	height: 100%;
-	margin-top: 50px;
-}
-
-.board {
-	margin: auto;
-	width: 50%;
-	height: 400px;
-	text-align: center;
-}
-
-.section-enter {
-	opacity: 0.01;
-}
-
-.section-enter.section-enter-active {
-	opacity: 1;
-	transition: opacity 1000ms ease-in;
-}
-
