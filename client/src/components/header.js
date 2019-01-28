@@ -8,7 +8,7 @@ export default () => {
                     <img className="avatar rounded-circle mr-3" src={require('../images/8bit-avatar.jpg')}/>
                     <div className="media-body">
                         <h3>Chufeng Hu</h3>
-                        <p>I'm graduate student in computer science, I love math and coding</p>
+                        <p>I'm a graduate student in computer science, I love math and coding</p>
                     </div>
                 </div>
             </div>

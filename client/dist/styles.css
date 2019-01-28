@@ -8,8 +8,8 @@ body {
 }
 
 .navbar-brand img {
-    width: 11.5rem;
-    height: 2.7rem;
+    width: 7rem;
+    height: 1.7rem;
 }
 
 .navbar-dark .navbar-brand:hover,
@@ -59,6 +59,11 @@ body {
     color: gray;
     text-transform: none;
     background: white;
+    cursor: pointer;
+}
+
+.container .sticky-top .card-header:hover {
+    background: #9aeeaf4f;
 }
 
 i {

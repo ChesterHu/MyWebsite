@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
     return (
-        <div id="about" className="card">
+        <div className="card" id="about">
             <div className="card-header">
                 About
             </div>
@@ -16,7 +16,7 @@ const About = () => {
 
 const Projects = () => {
     return (
-        <div className="card">
+        <div className="card" id="projects">
             <div className="card-header">
                 Selected Project
             </div>
@@ -36,7 +36,7 @@ const Projects = () => {
 
 const Teaching = () => {
     return (
-        <div className="card">
+        <div className="card" id="teaching">
             <div className="card-header">
                 Teaching Experience
             </div>
@@ -56,7 +56,7 @@ const Teaching = () => {
 
 const Contact = () => {
     return (
-        <div className="card">
+        <div className="card" id="contact">
             <div className="card-header">
                 Contact
             </div>
@@ -82,6 +82,11 @@ const Footer = () => {
 	);
 }
 
+const handleClick = (id) => {
+    const element = document.getElementById(id);
+    element.scrollIntoView({behavior: "smooth"});
+}
+
 export default () => {
     const about = About();
     const projects = Projects();
@@ -95,19 +100,19 @@ export default () => {
                     <div className="col-lg-3">
                         <div className="container sticky-top">
                             <div className="card">
-                                <div className="card-header">
+                                <div className="card-header" onClick={() => handleClick("about")}>
                                     <i class="fas fa-home"></i> Home
                                 </div>
-                                <div className="card-header">
+                                <div className="card-header" onClick={() => handleClick("about")}>
                                     <i class="fas fa-user-secret"></i> About
                                 </div>
-                                <div className="card-header">
+                                <div className="card-header" onClick={() => handleClick("projects")}>
                                     <i class="far fa-file-code"></i> Projects
                                 </div>
-                                <div className="card-header">
+                                <div className="card-header" onClick={() => handleClick("teaching")}>
                                     <i class="fas fa-book"></i> Teaching
                                 </div>
-                                <div className="card-header">
+                                <div className="card-header" onClick={() => handleClick("contact")}>
                                     <i class="far fa-compass"></i> Contact
                                 </div>
                             </div>
