@@ -1,4 +1,5 @@
 import React from "react";
+import Map from "./google_map";
 
 const About = () => {
     return (
@@ -69,6 +70,7 @@ const Contact = () => {
                     University of Waterloo, Ontario<br />
                     L3R 8M6
                 </p>
+                <Map />
             </div>
         </div>
     );

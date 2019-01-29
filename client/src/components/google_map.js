@@ -5,15 +5,15 @@ class GoogleMap extends Component {
 		new google.maps.Map(this.refs.map, {
 			zoom: 12,
 			center: {
-				lat: this.props.lat,
-				lng: this.props.lng
+				lat: 43.472712,
+				lng:  -80.542039,
 			}
 		});
 	}
 
 	render() {
 		return (
-			<div ref='map' />
+			<div ref='map' style={{width:500, height:300}}/>
 		);
 	}
 }
