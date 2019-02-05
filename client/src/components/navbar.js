@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default () => {
     return (
@@ -23,7 +24,9 @@ export default () => {
                     <a className="nav-link" href="https://www.facebook.com/profile.php?id=100009987228975">Facebook</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/gallery">Gallery</a>
+                    <Link to="/gallery">
+                        <div className="nav-link">Gallery</div>
+                    </Link>
                 </li>
                 </ul>
             </div>
